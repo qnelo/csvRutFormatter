@@ -1,12 +1,15 @@
 import test from 'ava';
 const csvClass = require('../lib/csv-class.js');
 
-let csv = new csvClass('sii.csv');
+let csv = new csvClass('./test/sii.csv');
 
-test('Return array', t => {
+test.cb('Return instanceof Array & compare 0, 350400 positions', t => {
     // Arrange & Act
-    let result = csv.getArray();
-    // Assert
-    t.not(result, null);
-    t.is(result instanceof Array, true);
+    csv.getArray((data) => {
+        // Assert
+        t.is(data[0], '50.534.620-3');
+        t.is(data[350400], '76.365.580-6');
+        t.is(data instanceof Array, true);
+        t.end();
+    });
 });

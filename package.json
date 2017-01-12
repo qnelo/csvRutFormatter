@@ -14,7 +14,7 @@
     "lint": "node_modules/.bin/gulp lint",
     "doc": "node_modules/.bin/gulp doc",
     "test": "node_modules/.bin/nyc node --harmony_async_await node_modules/.bin/ava",
-    "test:watch": "node --harmony_async_await node_modules/.bin/ava --watch"
+    "test:watch": "NODE_DEBUG=csv node --harmony_async_await node_modules/.bin/ava --watch"
   },
   "ava": {
     "verbose": true
@@ -33,6 +33,7 @@
     "nyc": "^10.0.0"
   },
   "dependencies": {
+    "csv-parser": "^1.11.0",
     "rutjs": "^0.1.1"
   }
 }
